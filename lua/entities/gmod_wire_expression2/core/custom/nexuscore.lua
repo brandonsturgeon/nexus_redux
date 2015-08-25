@@ -144,9 +144,10 @@ if SERVER then
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
 			if self.player:IsAdmin() then isAdmin = true end
+
+                        if !isAdmin then return false end -- Admins only. -phatso
 			
 			if !isAdmin then
-				return false --Admins Only. -phatso
                                 --Set Player In ReUseList
 				if not ReUseList[self.player:UniqueID()] then
 					ReUseList[self.player:UniqueID()] = -1
