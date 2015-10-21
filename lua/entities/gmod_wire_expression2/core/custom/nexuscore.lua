@@ -114,6 +114,26 @@ if SERVER then
 	Msg( "|| Loading...                       ||\n" )
 
 
+
+
+	/*
+
+			HUGE FANCY TEXT IM NOT CREATIVE ENOUGH TO DO HERE
+
+	*/
+
+	loadingLog("Entity:isInPVPMode()")
+	__e2cost(10)
+	e2function bool entity:isInPVPMode()
+		if (!IsValid(this)) then return 0 end
+		if (!this:IsPlayer()) then return 0 end
+		return this:GetPData("PVPMode")
+	end
+
+
+
+
+
 	/*
 	.___________. _______  __       _______ .______     ______   .______     .___________.
 	|           ||   ____||  |     |   ____||   _  \   /  __  \  |   _  \    |           |
@@ -129,6 +149,8 @@ if SERVER then
 
 	--SetUp E2 Function Cost
 	__e2setcost(50)
+
+
 
 	--Setup E2 Function
 	e2function void entity:teleport(vector pos)
