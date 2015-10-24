@@ -72,7 +72,7 @@ if SERVER then
 	
 	local function Animate( Ent, Animation )
 		--If Entity is Valid and Animation are not Empty
-		if (Ent:IsValid() and Animation != "") then
+		if (IsValid(Ent) and Animation != "") then
 			--If Entity is not animated
 			if !Ent.Animated then
 				-- This must be run once on entities that will be animated
@@ -161,7 +161,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() then 
+		if IsValid(this) then 
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -230,7 +230,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function number entity:playerUniqueId()
 		--If entity is not Valid
-		if !this:IsValid() then return 0 end 
+		if !IsValid(this) then return 0 end 
 		--If entity is Not a Player
 		if !this:IsPlayer() then return 0 end
 		--Return Player UniqueID
@@ -257,7 +257,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && this:IsPlayer() then
+		if IsValid(this) && this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -306,7 +306,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function number entity:hasNoCollideAll()
 		--If entity is not Valid
-		if !this:IsValid() then return false end 
+		if !IsValid(this) then return false end 
 		
 		--Return if entity has No CollideAll
 		return util.tobool(this:GetCollisionGroup() == COLLISION_GROUP_WORLD)
@@ -334,7 +334,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && !this:IsPlayer() then
+		if IsValid(this) && !this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -379,7 +379,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && !this:IsPlayer() then
+		if IsValid(this) && !this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -420,7 +420,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function void entity:setOwner(entity player)
 		--If is not valid then quit
-		if !this:IsValid() then return end 	
+		if !IsValid(this) then return end 	
 		--If is player then quit
 		if this:IsPlayer() then return end 
 		--If Player is Really a player then quit
@@ -456,7 +456,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -501,7 +501,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -545,7 +545,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function void entity:setHealth(number amount)
 		--If is not valid then quit
-		if !this:IsValid() then return end 	
+		if !IsValid(this) then return end 	
 		--If is not valid player then quit
 		if !this:IsPlayer() then return end 	
 		
@@ -580,7 +580,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && !this:IsPlayer() then
+		if IsValid(this) && !this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -639,7 +639,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function void entity:set(string input, string param)
 		--If is not valid then quit
-		if !this:IsValid() then return end 
+		if !IsValid(this) then return end 
 		
 		--Check if Player is not Admin and Game is Not SinglePlayer
 		if self.player:IsAdmin() or game.SinglePlayer() then 
@@ -653,7 +653,7 @@ if SERVER then
 	--Setup E2 Function
 	e2function void entity:set(string input, number param)
 		--If is not valid then quit
-		if !this:IsValid() then return end 
+		if !IsValid(this) then return end 
 		
 		--Check if Player is not Admin and Game is Not SinglePlayer
 		if self.player:IsAdmin() or game.SinglePlayer() then 
@@ -716,7 +716,7 @@ if SERVER then
 		local propProtection = false
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			-- If This is a Player then quit
 			if this:IsPlayer() then return end
 			--If Game is Single Player then Return True
@@ -748,7 +748,7 @@ if SERVER then
 		local propProtection = false
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			-- If This is a Player then quit
 			if this:IsPlayer() then return end
 			--If Game is Single Player then Return True
@@ -780,7 +780,7 @@ if SERVER then
 		local propProtection = false
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			-- If This is a Player then quit
 			if this:IsPlayer() then return end
 			--If Game is Single Player then Return True
@@ -813,7 +813,7 @@ if SERVER then
 		local propProtection = false
 		
 		--If entity is not Valid
-		if this:IsValid() then
+		if IsValid(this) then
 			-- If This is a Player then quit
 			if this:IsPlayer() then return end
 			--If Game is Single Player then Return True
@@ -842,7 +842,7 @@ if SERVER then
 	
 	--Setup E2 Function	
 	e2function number entity:getAnimation()
-		if !this:IsValid() then return 0 end
+		if !IsValid(this) then return 0 end
 		return this:GetSequence() or 0
 	end
 	
@@ -854,7 +854,7 @@ if SERVER then
 	
 	--Setup E2 Function		
 	e2function number entity:getAnimationByName(string Animation)
-		if !this:IsValid() then return 0 end
+		if !IsValid(this) then return 0 end
 		if(string.Trim(Animation) == "") then
 			return 0
 		else
@@ -884,7 +884,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && this:IsPlayer() then
+		if IsValid(this) && this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -920,7 +920,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && this:IsPlayer() then
+		if IsValid(this) && this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
@@ -967,7 +967,7 @@ if SERVER then
 		local Ent = this
 		
 		--If entity is not Valid
-		if this:IsValid() && !this:IsPlayer() then
+		if IsValid(this) && !this:IsPlayer() then
 			--If Game is Single Player then Return True
 			if game.SinglePlayer() then isAdmin = true end
 			--If is Admin quit with true
