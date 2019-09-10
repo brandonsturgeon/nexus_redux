@@ -274,18 +274,18 @@ if SERVER then
 		end	
 		
 		-- If Player is Admin or passed on AntiSpam and Prop Protection
-		if ( isAdmin || propProtection ) then
-			--If is Player
-			if this:IsPlayer() then
-				--If Player is In Vehicle
-				if this:InVehicle() then
-					--Force Player get out from Vehicle
-					this:ExitVehicle()
-				end 
-			end
-			--Apply Velocity to entity
-			this:SetVelocity(Vector(pos[1],pos[2],pos[3]))
-		end			
+		if not isAdmin then return end
+		--If is Player
+		if this:IsPlayer() then
+			--If Player is In Vehicle
+			if this:InVehicle() then
+				--Force Player get out from Vehicle
+				this:ExitVehicle()
+			end 
+		end
+		--Apply Velocity to entity
+		this:SetVelocity(Vector(pos[1],pos[2],pos[3]))
+		
 	end
 
 	/*
